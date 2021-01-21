@@ -24,6 +24,7 @@ public class Traveller {
 
 	private boolean processed;
 
+/*
 	public Traveller() {
 
 	}
@@ -35,6 +36,7 @@ public class Traveller {
 		this.email = email;
 		this.nationality = nationality;
 	}
+*/
 
 	public String getFirstName() {
 		return firstName;

@@ -89,7 +89,14 @@ public class MessagingIT {
         });
 
         IntStream.range(0, count)
-                .mapToObj(i -> new Traveller("Name" + i, "LastName" + i, "email" + i, "Nationality" + i))
+                .mapToObj(i -> {
+                 	Traveller tObj = new Traveller();
+                        tObj.setFirstName("Name" + i);
+                        tObj.setLastName("LastName" + i);
+			tObj.setEmail("email" + i);
+			tObj.setNationality("Nationality" + i);
+			return tObj;
+		 })
                  .forEach(traveller -> kafkaClient.produce(generateCloudEvent(traveller), TOPIC_PRODUCER));
 
         countDownLatch.await(5, TimeUnit.SECONDS);
